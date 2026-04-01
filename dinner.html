@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Dinner Menu</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body class="body5">
+
+
+   <div class="return-bar">
+       <a href="/menu.html">Return to main menu</a>
+   </div>
+
+
+   <h1>Dinner Menu</h1>
+   <br><br><br>
+
+
+   <div class="menu-items-b">
+       <!-- U.S Sirloin 6oz -->
+       <div class="menu-item" data-price="8.89">
+           <h2 class="item-title">U.S Sirloin 6oz</h2>
+           <h2 class="price">- $8.89</h2>
+           <div class="controls">
+               <button type="button" onclick="changeQty(this, -1)">-</button>
+               <span class="qty">0</span>
+               <button type="button" onclick="changeQty(this, 1)">+</button>
+           </div>
+       </div>
+
+
+       <!-- Hamburger Steak -->
+       <div class="menu-item" data-price="7.89">
+           <h2 class="item-title">Hamburger Steak</h2>
+           <span class="description"><i>(½ pound)</i></span>
+           <h2 class="price">- $7.89</h2>
+           <div class="controls">
+               <button type="button" onclick="changeQty(this, -1)">-</button>
+               <span class="qty">0</span>
+               <button type="button" onclick="changeQty(this, 1)">+</button>
+           </div>
+       </div>
+
+
+       <!-- Hoagie Steak Platter -->
+       <div class="menu-item" data-price="8.24">
+           <h2 class="item-title">Hoagie Steak Platter</h2>
+           <h2 class="price">- $8.24</h2>
+           <div class="controls">
+               <button type="button" onclick="changeQty(this, -1)">-</button>
+               <span class="qty">0</span>
+               <button type="button" onclick="changeQty(this, 1)">+</button>
+           </div>
+       </div>
+
+
+       <!-- Shrimp Platter -->
+       <div class="menu-item" data-price="7.29">
+           <h2 class="item-title">Shrimp Platter</h2>
+           <span class="description"><i>(21 pcs)</i></span>
+           <h2 class="price">- $7.29</h2>
+           <div class="controls">
+               <button type="button" onclick="changeQty(this, -1)">-</button>
+               <span class="qty">0</span>
+               <button type="button" onclick="changeQty(this, 1)">+</button>
+           </div>
+       </div>
+
+
+       <!-- Big Fish Platter -->
+       <div class="menu-item" data-price="8.24">
+           <h2 class="item-title">Big Fish Platter</h2>
+           <h2 class="price">- $8.24</h2>
+           <div class="controls">
+               <button type="button" onclick="changeQty(this, -1)">-</button>
+               <span class="qty">0</span>
+               <button type="button" onclick="changeQty(this, 1)">+</button>
+           </div>
+       </div>
+
+
+       <!-- Small Fish Platter -->
+       <div class="menu-item" data-price="6.64">
+           <h2 class="item-title">Small Fish Platter</h2>
+           <h2 class="price">- $6.64</h2>
+           <div class="controls">
+               <button type="button" onclick="changeQty(this, -1)">-</button>
+               <span class="qty">0</span>
+               <button type="button" onclick="changeQty(this, 1)">+</button>
+           </div>
+       </div>
+
+
+       <!-- Fried Chicken Platter -->
+       <div class="menu-item" data-price="8.24">
+           <h2 class="item-title">Fried Chicken Platter</h2>
+           <span class="description"><i>(3 pcs)</i></span>
+           <h2 class="price">- $8.24</h2>
+           <div class="controls">
+               <button type="button" onclick="changeQty(this, -1)">-</button>
+               <span class="qty">0</span>
+               <button type="button" onclick="changeQty(this, 1)">+</button>
+           </div>
+       </div>
+   </div>
+
+
+   <!-- Sticky Footer -->
+   <div class="cart-summary">
+       <h3>Total Order: $<span id="total-price">0.00</span></h3>
+       <!-- Added the ID here -->
+       <button class="checkout-btn" id="view-order-btn">View Order</button>
+   </div>
+
+
+   <!-- Modal for Order Review -->
+   <div id="orderModal" class="modal">
+       <div class="modal-content">
+           <span class="close-btn" onclick="closeModal()">&times;</span>
+           <h2 style="color:black;">Your Order</h2>
+           <hr> <br>
+           <div id="order-list"></div>
+           <div id="modal-total-price"><strong style="color:black;">Total: $0.00</strong></div>
+           <br><br><br>
+       </div>
+   </div>
+
+
+   <footer class="site-footer">
+       <p>Copyright © 2021 Dizzy Whizz Inc.</p>
+   </footer>
+
+
+   <script>
+       function changeQty(btn, change) {
+           const container = btn.parentElement;
+           const qtyElement = container.querySelector('.qty');
+           let currentQty = parseInt(qtyElement.innerText);
+           currentQty += change;
+           if (currentQty < 0) currentQty = 0;
+           qtyElement.innerText = currentQty;
+           updateTotal();
+       }
+
+
+       function updateTotal() {
+           let total = 0;
+           document.querySelectorAll('.menu-item').forEach(item => {
+               const price = parseFloat(item.getAttribute('data-price'));
+               const qty = parseInt(item.querySelector('.qty').innerText);
+               total += price * qty;
+           });
+           document.getElementById('total-price').innerText = total.toFixed(2);
+       }
+
+
+       // Updated to use the specific ID
+       document.getElementById('view-order-btn').onclick = function() {
+           let orderList = document.getElementById('order-list');
+           let totalDisplay = document.getElementById('total-price').innerText;
+           orderList.innerHTML = '';
+           let hasItems = false;
+          
+           document.querySelectorAll('.menu-item').forEach(item => {
+               let qty = parseInt(item.querySelector('.qty').innerText);
+               if (qty > 0) {
+                   hasItems = true;
+                   let title = item.querySelector('.item-title').innerText;
+                   let price = parseFloat(item.getAttribute('data-price'));
+                   let itemTotal = (qty * price).toFixed(2);
+                   orderList.innerHTML += `<p style="color:black; border-bottom:1px solid #ddd; padding:5px;">${qty}x ${title} - $${itemTotal}</p>`;
+               }
+           });
+
+
+           if (!hasItems) {
+               orderList.innerHTML = '<p style="color:black;">Your cart is empty!</p>';
+           }
+
+
+           document.getElementById('modal-total-price').innerHTML = `<strong style="color:black;">Total: $${totalDisplay}</strong>`;
+           document.getElementById('orderModal').style.display = "block";
+       }
+
+
+       function closeModal() {
+           document.getElementById('orderModal').style.display = "none";
+       }
+
+
+       window.addEventListener('click', function(event) {
+           let modal = document.getElementById('orderModal');
+           if (event.target == modal) {
+               modal.style.display = "none";
+           }
+       });
+   </script>
+</body>
+</html>
+
+
+
