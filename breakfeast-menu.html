@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Breakfast Menu</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body class="body5">
+
+
+   <div class="return-bar">
+       <a href="/menu.html">Return to main menu</a>
+   </div>
+
+
+   <h1>Breakfast Menu</h1>
+   <br><br><br>
+
+
+   <div class="menu-items-b">
+       <!-- Bacon Or Sausage And Egg Sandwich -->
+       <div class="menu-item" data-price="6.50">
+           <h2 class="item-title">Bacon Or Sausage And Egg Sandwich</h2>
+           <span class="description"><i>(A classic breakfast sandwich to indulge!)</i></span>
+           <h2 class="price">- $6.50</h2>
+           <div class="controls">
+               <button type="button" onclick="changeQty(this, -1)">-</button>
+               <span class="qty">0</span>
+               <button type="button" onclick="changeQty(this, 1)">+</button>
+           </div>
+       </div>
+
+
+       <!-- Hot Cakes -->
+       <div class="menu-item" data-price="9.50">
+           <h2 class="item-title">Hot Cakes</h2>
+           <span class="description"><i>(3 Pieces & 3 layers of golden brown hotcakes.)</i></span>
+           <h2 class="price">- $9.50</h2>
+           <div class="controls">
+               <button type="button" onclick="changeQty(this, -1)">-</button>
+               <span class="qty">0</span>
+               <button type="button" onclick="changeQty(this, 1)">+</button>
+           </div>
+       </div>
+
+
+       <!-- Egg Sandwich -->
+       <div class="menu-item" data-price="4.50">
+           <h2 class="item-title">Egg Sandwich</h2>
+           <span class="description"><i>(Want a quick tasty bite? Order an over hard egg sandwich on your choice of bread.)</i></span>
+           <h2 class="price">- $4.50</h2>
+           <div class="controls">
+               <button type="button" onclick="changeQty(this, -1)">-</button>
+               <span class="qty">0</span>
+               <button type="button" onclick="changeQty(this, 1)">+</button>
+           </div>
+       </div>
+
+
+       <!-- Bacon Or Sausage Sandwich -->
+       <div class="menu-item" data-price="6.50">
+           <h2 class="item-title">Bacon Or Sausage Sandwich</h2>
+           <span class="description"><i>(Bacon or Sausage... What are you in the mood for? Choose your delight!)</i></span>
+           <h2 class="price">- $6.50</h2>
+           <div class="controls">
+               <button type="button" onclick="changeQty(this, -1)">-</button>
+               <span class="qty">0</span>
+               <button type="button" onclick="changeQty(this, 1)">+</button>
+           </div>
+       </div>
+
+
+       <!-- Ham And Egg Sandwich -->
+       <div class="menu-item" data-price="6.50">
+           <h2 class="item-title">Ham And Egg Sandwich</h2>
+           <span class="description"><i>(A delicious piece of ham with over hard egg will satisfy your appetite.)</i></span>
+           <h2 class="price">- $6.50</h2>
+           <div class="controls">
+               <button type="button" onclick="changeQty(this, -1)">-</button>
+               <span class="qty">0</span>
+               <button type="button" onclick="changeQty(this, 1)">+</button>
+           </div>
+       </div>
+
+
+       <!-- Order Of Bacon Or Sausage -->
+       <div class="menu-item" data-price="4.75">
+           <h2 class="item-title">Order Of Bacon Or Sausage</h2>
+           <span class="description"><i>(Want extra meat? Add an additional order of Bacon or Sausage.)</i></span>
+           <h2 class="price">- $4.75</h2>
+           <div class="controls">
+               <button type="button" onclick="changeQty(this, -1)">-</button>
+               <span class="qty">0</span>
+               <button type="button" onclick="changeQty(this, 1)">+</button>
+           </div>
+       </div>
+
+
+       <!-- Hash Brown Only -->
+       <div class="menu-item" data-price="4.95">
+           <h2 class="item-title">Hash Brown Only</h2>
+           <span class="description"><i>(A nice portion of tasty Hash Brown cooked to perfection!)</i></span>
+           <h2 class="price">- $4.95</h2>
+           <div class="controls">
+               <button type="button" onclick="changeQty(this, -1)">-</button>
+               <span class="qty">0</span>
+               <button type="button" onclick="changeQty(this, 1)">+</button>
+           </div>
+       </div>
+   </div>
+
+
+   <!-- Sticky Footer -->
+   <div class="cart-summary">
+       <h3>Total Order: $<span id="total-price">0.00</span></h3>
+       <!-- Added unique ID here -->
+       <button class="checkout-btn" id="view-order-btn">View Order</button>
+   </div>
+
+
+   <!-- Order Modal -->
+   <div id="orderModal" class="modal">
+     <div class="modal-content">
+       <span class="close-btn" onclick="closeModal()">&times;</span>
+       <h2 style="color:black;">Your Order</h2>
+       <hr><br>
+       <div id="order-list"></div>
+       <div id="modal-total-price"><strong style="color:black;">Total: $0.00</strong></div>
+       <br><br><br>
+     </div>
+   </div>
+
+
+   <footer class="site-footer">
+       <p>Copyright © 2021 Dizzy Whizz Inc.</p>
+   </footer>
+
+
+   <script>
+       function changeQty(btn, change) {
+           const container = btn.parentElement;
+           const qtyElement = container.querySelector('.qty');
+           let currentQty = parseInt(qtyElement.innerText);
+           currentQty += change;
+           if (currentQty < 0) currentQty = 0;
+           qtyElement.innerText = currentQty;
+           updateTotal();
+       }
+
+
+       function updateTotal() {
+           let total = 0;
+           document.querySelectorAll('.menu-item').forEach(item => {
+               const price = parseFloat(item.getAttribute('data-price'));
+               const qty = parseInt(item.querySelector('.qty').innerText);
+               total += price * qty;
+           });
+           document.getElementById('total-price').innerText = total.toFixed(2);
+       }
+
+
+       // Fixed trigger using unique ID
+       document.getElementById('view-order-btn').onclick = function() {
+           let orderList = document.getElementById('order-list');
+           let totalDisplay = document.getElementById('total-price').innerText;
+           orderList.innerHTML = '';
+           let hasItems = false;
+          
+           document.querySelectorAll('.menu-item').forEach(item => {
+               let qty = parseInt(item.querySelector('.qty').innerText);
+               if (qty > 0) {
+                   hasItems = true;
+                   let title = item.querySelector('.item-title').innerText;
+                   let price = parseFloat(item.getAttribute('data-price'));
+                   let itemTotal = (qty * price).toFixed(2);
+                   orderList.innerHTML += `<p style="color:black; border-bottom:1px solid #ddd; padding:5px;">${qty}x ${title} - $${itemTotal}</p>`;
+               }
+           });
+
+
+           if (!hasItems) {
+               orderList.innerHTML = '<p style="color:black;">Your cart is empty!</p>';
+           }
+
+
+           document.getElementById('modal-total-price').innerHTML = `<strong style="color:black;">Total: $${totalDisplay}</strong>`;
+           document.getElementById('orderModal').style.display = "block";
+       }
+
+
+       function closeModal() {
+           document.getElementById('orderModal').style.display = "none";
+       }
+
+
+       window.addEventListener('click', function(event) {
+           let modal = document.getElementById('orderModal');
+           if (event.target == modal) {
+               modal.style.display = "none";
+           }
+       });
+   </script>
+</body>
+</html>
+
+
+
