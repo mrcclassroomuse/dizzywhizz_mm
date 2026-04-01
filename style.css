@@ -1,0 +1,929 @@
+/* Mobile-First Base Styles */
+* {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+
+
+body {
+   background-color: rgb(252, 243, 174);
+   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+}
+
+
+/* Navigation Bar */
+.navbar {
+   background-color: #333;
+   padding: 10px 0;
+}
+
+
+.nav-container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 0 20px;
+}
+
+
+.nav-menu {
+   display: none; /* Hidden on mobile by default */
+   list-style: none;
+   flex-direction: column;
+   width: 100%;
+   text-align: center;
+}
+
+
+.nav-menu.active {
+   display: flex; /* Show when toggled */
+}
+
+
+.nav-menu li {
+   padding: 15px 0;
+}
+
+
+.nav-menu a {
+   color: white;
+   text-decoration: none;
+   font-size: 1.2rem;
+}
+
+
+/* Hamburger Icon */
+
+
+
+
+.bar {
+   display: block;
+   width: 25px;
+   height: 3px;
+   margin: 5px auto;
+   background-color: white;
+   transition: all 0.3s ease-in-out;
+}
+
+
+/* Hero Section */
+.hero-section {
+   background-color: rgba(236, 217, 74, 0.744);
+   padding: 60px 20px;
+   text-align: center;
+}
+
+
+.hero-section h1 {
+ font-size: 72px;
+ font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+}
+
+
+.hero-section p {
+ font-size: 28px;
+ font-family:'Times New Roman', Times, serif;
+}
+
+
+/* Content Layout */
+.content-wrapper {
+   padding: 20px;
+   max-width: 1200px;
+   margin: 0 auto;
+}
+
+
+.split-container {
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+}
+
+
+.image-box {
+   width: 95%;
+   min-height: 300px;
+   background-color: #eee;
+   border: 10px solid #a57c00c0;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   overflow: hidden;
+}
+
+
+.credit { margin-top: 15px; font-style: italic; }
+.footer-text { margin-top: 50px; }
+
+
+/* Desktop Enhancements */
+/* 1. Global Sticky Navbar (Works on all screens) */
+.navbar {
+   top: 0;
+   width: 100%;
+   background-color: #333;
+   z-index: 1000;
+   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+   margin: 0;
+   padding: 0;
+}
+
+
+/* 2. Base Nav Menu Styles */
+.nav-menu {
+   display: flex;
+   list-style: none;
+   padding: 15px 0;
+   margin: 0;
+   justify-content: center;
+   gap: 15px; /* Smaller gap for mobile so they fit */
+}
+
+
+.nav-menu a {
+   color: white;
+   text-decoration: none;
+   font-weight: bold;
+}
+
+
+/* 3. Media Query for Desktop (Optional: Wider gaps on big screens) */
+@media (min-width: 768px) {
+   .nav-menu {
+       gap: 40px; /* Spreads out more on laptops */
+   }
+}
+
+
+/* 4. Fix for Content "Jumping" */
+
+
+
+
+
+
+   .split-container {
+       flex-direction: row;
+       align-items: flex-start;
+   }
+
+
+   .text-content {
+     flex: 1; order: 1;
+     font-size: 32px;
+     /* text-indent: 9%; */
+     text-align:left;
+     background-color: #ebe062b5;
+     padding: 4%;
+     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+     line-height: 2;
+   }
+   .media-content { flex: 1; order: 2; }
+
+
+
+
+.curbside-img {
+  display: flex;          /* Enables Flexbox */
+  justify-content: center; /* Centers horizontally */
+  align-items: center;     /* Centers vertically */
+ 
+  border: 10px;
+  border-style: ridge;
+  border-color: #a57c00c0;
+  margin: 20px auto;      /* Adds space and centers the div itself */
+  max-width: 80%;         /* Keeps the border from touching the screen edges */
+  background-color: #ecd075be;
+}
+
+
+.curbside-img img {
+  max-width: 100%;        /* Ensures the image doesn't overflow the border */
+  height: auto;
+}
+
+
+
+
+/* Update the nav-menu a styles */
+.nav-menu a {
+   color: white;
+   text-decoration: none;
+   font-size: 1.2rem;
+   display: inline-block; /* Required for transform to work */
+   transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+
+/* Hover Effect: Enlarges the link */
+.nav-menu a:hover {
+   transform: scale(1.2); /* Enlarges by 20% */
+   color: #ffd700; /* Optional: changes color to match hero on hover */
+}
+
+
+/* For mobile accessibility: slight enlargement on the hamburger button too */
+.menu-toggle {
+   display: block;
+   cursor: pointer;
+   background: none;
+   border: none;
+   transition: transform 0.2s ease;
+}
+
+
+.menu-toggle:active {
+   transform: scale(1.1);
+}
+
+
+@media (min-width: 768px) {
+   /* Ensure the scale has room to breathe in the layout */
+   .nav-menu {
+       gap: 50px;
+   }
+}
+
+
+/* Container to hold the banner */
+.banner-container {
+   width: 100%;
+   overflow: hidden;
+   line-height: 0; /* Removes small gap under the image */
+}
+
+
+/* Mobile-first: Image fills width and adjusts height automatically */
+.top-banner {
+   width: 100%;
+   height: auto;
+   display: block;
+}
+
+
+/* Desktop: Prevents the banner from becoming too tall on large screens */
+@media (min-width: 1024px) {
+   .top-banner {
+       max-height: 450px;
+       object-fit: cover; /* Crops the image nicely if it hits the max height */
+   }
+}
+
+
+.site-footer {
+   background-color: #333; /* Your requested purple color */
+   color: #ffffff;            /* White text for contrast */
+   padding: 20px;
+   text-align: center;
+   width: 100%;
+}
+
+
+.site-footer p {
+   font-style: italic;        /* Italicized as requested */
+   margin: 0;
+   font-size: 18px;
+}
+
+
+
+
+.map-container {
+   width: 100%;
+   margin-top: 30px;
+   position: relative;
+   padding-bottom: 56.25%; /* Maintains a 16:9 aspect ratio */
+   height: 0;
+   overflow: hidden;
+   border-color: #ffd700;
+   border-style: ridge;
+   border-radius: 6%;
+}
+
+
+.map-container iframe {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   border: 0;
+}
+
+
+/* Optional: Limit the width on desktop so the map isn't huge */
+@media (min-width: 768px) {
+   .map-container {
+       max-width: 800px;
+       margin-left: auto;
+       margin-right: auto;
+       padding-bottom: 450px; /* Specific height for larger screens */
+   }
+}
+
+
+h1 {
+ text-align: center;
+ font-size: 50px;
+ text-decoration: dotted;
+ text-decoration-line:underline;
+}
+
+
+/* Mobile-First: Stacked layout with spacing */
+.info-section {
+   margin-top: 50px; /* Two spaces of separation */
+   padding: 20px 0;
+}
+
+
+.hours-container {
+   padding: 20px;
+   border-radius: 8px;
+   margin-bottom: 20px;
+}
+
+
+.hours-container h1 {
+   margin-bottom: 15px;
+   border-bottom: 2px solid #ebe062b5; /* Matching your footer color */
+   display: inline-block;
+}
+
+
+.hours-list {
+   list-style: none;
+   padding: 0;
+}
+
+
+.hours-list li {
+   margin-bottom: 8px;
+   font-size: 1.6rem;
+   line-height: 2;
+}
+
+
+/* Desktop: Side-by-side layout */
+@media (min-width: 768px) {
+   .info-section {
+       display: flex;
+       gap: 40px;
+       align-items: flex-start;
+   }
+
+
+   .hours-container {
+       flex: 1;
+       margin-bottom: 0;
+       background-color: #ebe062b5;
+       text-align: center;
+       line-height: 2;
+   }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Responsive Iframe */
+.iframe-container {
+   width: 100%;
+   max-width: 640px;
+   margin: 0 auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*ABOUT US CSS*/
+/* Layout Settings */
+.history-section {
+   max-width: 1000px;
+   margin: 0 auto;
+   padding: 40px 20px;
+}
+
+
+.history-title {
+   text-align: center;
+   font-size: 48px;
+   margin-bottom: 40px;
+}
+
+
+/* Flexbox Row Setup */
+.history-row {
+   display: flex;
+   align-items: center;
+   gap: 40px;
+   margin-bottom: 60px;
+}
+
+
+/* Alternating logic */
+.row-standard { flex-direction: row; }
+.row-reverse { flex-direction: row-reverse; }
+
+
+.history-text{
+   font-size: 28px;
+   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   background-color: #ebe062b5;
+   padding: 4%;
+   text-indent: 5%;
+   justify-content: center;
+   text-align: center;
+   border-style: groove;
+   border-color: #645603;
+   border-width: 3px;
+   line-height: 2;
+  
+}
+
+
+/* Mobile-First Adjustments (Stacks on small screens) */
+@media (max-width: 768px) {
+   .history-row {
+       flex-direction: column !important;
+       text-align: center;
+       gap: 20px;
+   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Dizzy Special & Combos Page*/
+/* Header Styles */
+.specials-header {
+   text-align: center;
+   padding: 40px 20px;
+}
+
+
+.specials-header h1 {
+   font-size: 3rem;
+   margin-bottom: 10px;
+}
+
+
+h2 {
+ font-size: 40px;
+}
+
+
+/* Container */
+.specials-container {
+   max-width: 1000px;
+   margin: 0 auto;
+   padding: 20px;
+}
+
+
+/* Mobile-First: Items stack vertically by default */
+.special-content {
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+   align-items: center;
+   margin-bottom: 20px;
+}
+
+
+.special-image img {
+   width: 100%;
+   max-width: 400px;
+   height: auto;
+   border-radius: 8px;
+   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+
+.special-text {
+   text-align: center;
+   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   font-size: 25px;
+   background-color: #ebe062b5;
+   padding: 4%;
+   border-color:#ffd700;
+   line-height: 2;
+  
+}
+
+
+/* Divider Lines */
+.special-divider {
+   border: 0;
+   height: 1px;
+   background: #000000;
+   margin: 40px 0;
+}
+
+
+/* Desktop Layout: Zig-Zag effect */
+@media (min-width: 768px) {
+   .special-content {
+       flex-direction: row; /* Image Left, Text Right */
+       text-align: left;
+   }
+
+
+   /* Target every second item to flip it */
+   .special-item.alternate .special-content {
+       flex-direction: row-reverse; /* Text Left, Image Right */
+   }
+
+
+   .special-image, .special-text {
+       flex: 1;
+   }
+}
+
+
+/* Container for the clickable row */
+.custom-option {
+   display: block;
+   cursor: pointer;
+   position: relative;
+   padding-left: 35px; /* Space for the box */
+   width: 100%;
+}
+
+
+/* Hide the actual browser checkbox */
+.custom-option input {
+   position: absolute;
+   opacity: 0;
+   cursor: pointer;
+}
+
+
+/* The custom box (The "check box") */
+.custom-option span::before {
+   content: "";
+   position: absolute;
+   left: 0;
+   top: 50%;
+   transform: translateY(-50%);
+   height: 20px;
+   width: 20px;
+   background-color: #fff;
+   border: 2px solid #abab20;
+   border-radius: 4px; /* Makes it slightly rounded */
+}
+
+
+/* Style for Radio Buttons (Circle shape for "Choose One") */
+.custom-option input[type="radio"] + span::before {
+   border-radius: 50%;
+}
+
+
+/* When the item is checked: Change background color */
+.custom-option input:checked + span::before {
+   background-color: #150324;
+   border-color: #150324;
+}
+
+
+/* The actual Checkmark (The white "L" shape) */
+.custom-option input:checked + span::after {
+   content: "";
+   position: absolute;
+   left: 7px;
+   top: 50%;
+   transform: translateY(-65%) rotate(45deg);
+   width: 5px;
+   height: 10px;
+   border: solid white;
+   border-width: 0 2px 2px 0;
+}
+
+
+/* Keep your existing price styling */
+.price {
+  color: #300c39;
+  font-weight: bold;
+  float: right;
+  font-style: italic;
+}
+
+
+.ingredient-list li {
+  padding: 12px 0; /* Increased padding for easier clicking */
+  border-bottom: 1px dashed #eee;
+  font-size: 25px;
+}
+
+
+
+
+/* Desktop: Side-by-Side Lists */
+@media (min-width: 768px) {
+   .options-grid {
+       flex-direction: row;
+   }
+  
+   .option-column {
+       flex: 1;
+   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*MENU CSS*/
+
+
+.menu-selection-bar {
+   background-color: rgba(163, 147, 26, 0.744);
+   padding: 3%;
+   text-align: center;
+   border-bottom: 2px solid #ddd;
+   margin-bottom: 20px;
+}
+
+
+.menu-selection-bar a {
+   text-decoration: none;
+   color: #ffffff;
+   padding: 0 15px;
+   font-weight: bold;
+   font-size: 18px;
+   flex-wrap: wrap;
+}
+
+
+.menu-selection-bar a:hover {
+   color:#ffd700; /* Or your brand color */
+}
+
+
+.welcome {
+ text-align: center;
+ font-size: 30px
+}
+.food2-img {
+justify-self: center;
+border: 8px groove #a57c00c0;
+padding: 8px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Global Styles */
+.body5 {
+   text-align: center;
+   font-family: sans-serif;
+   margin: 0;
+   padding: 0;
+   line-height: 1.4;
+}
+
+
+.menu-items-b {
+ margin-left: 20%;
+ line-height: 2;
+}
+
+
+
+
+/* Return to Main Menu Bar */
+.return-bar {
+   background: #333;
+   padding: 15px;
+   margin-bottom: 30px;
+   justify-items: center;
+}
+
+
+.return-bar a {
+   color: white;
+   text-decoration: none;
+   font-weight: bold;
+   font-size: 1.2rem;
+}
+
+
+.return-bar a:hover {
+   text-decoration: underline;
+}
+
+
+/* Menu Item Container */
+.menu-item {
+   margin-bottom: 40px;
+   padding: 0 20px;
+   background-color:#ebe062b5;
+   border-color: #241e03;
+   border-style: groove;
+   border-width: 5px;
+   max-width: 80%;
+  
+}
+
+
+/* Titles and Prices (Same Heading Style) */
+.item-title,
+.price {
+   font-size: 1.5rem;
+   font-weight: bold;
+   margin: 5px 0;
+   display: inline;
+}
+
+
+/* Descriptions */
+.description {
+   display: block;
+   margin: 10px 0;
+   font-size: 1.1rem;
+   line-height: 1.4;
+}
+
+
+/* Italicized Parenthesis */
+i {
+   font-style: italic;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Fixed */
+/* Keep your original CSS, then add these: */
+
+
+
+
+.controls {
+   margin-top: 15px;
+   padding-bottom: 15px;
+}
+
+
+.controls button {
+   background-color: #241e03;
+   color: white;
+   border: none;
+   padding: 10px 20px;
+   font-size: 1.2rem;
+   cursor: pointer;
+   border-radius: 5px;
+}
+
+
+.controls .qty {
+   font-size: 1.5rem;
+   font-weight: bold;
+   margin: 0 15px;
+   display: inline-block;
+   min-width: 30px;
+}
+
+
+/* Fixed bar at the bottom to show the price */
+.cart-summary {
+   position: fixed !important;
+   bottom: 0 !important;
+   left: 0;
+   width: 100%;
+   background: #333;
+   color: white;
+   display: flex !important;
+   justify-content: space-around;
+   align-items: center;
+   padding: 15px 0;
+   border-top: 5px solid #ebe062; /* Thickened Dizzy Whizz Yellow */
+   z-index: 9999 !important; /* Higher number stays on top */
+}
+
+
+
+
+.checkout-btn {
+   background-color: #d9534f; /* Dizzy Whizz Red */
+   color: white;
+   border: none;
+   padding: 10px 20px;
+   font-weight: bold;
+   cursor: pointer;
+}
+
+
+/* Adjust footer so it isn't hidden by the cart bar */
+.site-footer {
+   padding-bottom: 80px;
+}
+
+
+
