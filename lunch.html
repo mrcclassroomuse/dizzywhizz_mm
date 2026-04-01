@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Lunch Menu</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body class="body5">
+
+
+   <div class="return-bar">
+       <a href="/menu.html">Return to main menu</a>
+   </div>
+
+
+   <h1>Lunch Menu</h1>
+   <br><br><br>
+
+
+   <div class="menu-items-b">
+       <!-- Dizzinator -->
+       <div class="menu-item" data-price="18.75">
+           <h2 class="item-title">Dizzinator - Double Decker 1Lb</h2>
+           <span class="description"><i>(The father of all burgers! 1lb of beef, 2 slices of cheese, lettuce and special sauce.)</i></span>
+           <h2 class="price">- $18.75</h2>
+           <div class="controls">
+               <button type="button" onclick="changeQty(this, -1)">-</button>
+               <span class="qty">0</span>
+               <button type="button" onclick="changeQty(this, 1)">+</button>
+           </div>
+       </div>
+
+
+       <!-- Hotdog -->
+       <div class="menu-item" data-price="8.00">
+           <h2 class="item-title">1/4 Lb. Hotdog With Chili</h2>
+           <span class="description"><i>(A dog that never fails you... Chili is his treat!)</i></span>
+           <h2 class="price">- $8.00</h2>
+           <div class="controls">
+               <button type="button" onclick="changeQty(this, -1)">-</button>
+               <span class="qty">0</span>
+               <button type="button" onclick="changeQty(this, 1)">+</button>
+           </div>
+       </div>
+
+
+       <!-- Spicy Chicken -->
+       <div class="menu-item" data-price="9.50">
+           <h2 class="item-title">Spicy Breaded Chicken Fillet</h2>
+           <span class="description"><i>(Delicious chicken breast with a kick. Comes with lettuce and mayo.)</i></span>
+           <h2 class="price">- $9.50</h2>
+           <div class="controls">
+               <button type="button" onclick="changeQty(this, -1)">-</button>
+               <span class="qty">0</span>
+               <button type="button" onclick="changeQty(this, 1)">+</button>
+           </div>
+       </div>
+
+
+       <!-- Bacon Double -->
+       <div class="menu-item" data-price="8.95">
+           <h2 class="item-title">Bacon Double Cheeseburger</h2>
+           <span class="description"><i>(A tasteful burger for bacon lovers!)</i></span>
+           <h2 class="price">- $8.95</h2>
+           <div class="controls">
+               <button type="button" onclick="changeQty(this, -1)">-</button>
+               <span class="qty">0</span>
+               <button type="button" onclick="changeQty(this, 1)">+</button>
+           </div>
+       </div>
+
+
+       <!-- 1/2 Lb Deluxe -->
+       <div class="menu-item" data-price="12.95">
+           <h2 class="item-title">1/2 Lb. Deluxe With Cheese</h2>
+           <span class="description"><i>(Super size burger with all the fixings. A customer favorite!)</i></span>
+           <h2 class="price">- $12.95</h2>
+           <div class="controls">
+               <button type="button" onclick="changeQty(this, -1)">-</button>
+               <span class="qty">0</span>
+               <button type="button" onclick="changeQty(this, 1)">+</button>
+           </div>
+       </div>
+
+
+       <!-- Chicken Strips -->
+       <div class="menu-item" data-price="10.99">
+           <h2 class="item-title">Chicken Strips Dinner</h2>
+           <span class="description"><i>(Golden chicken strips with large fries and a side of gravy.)</i></span>
+           <h2 class="price">- $10.99</h2>
+           <div class="controls">
+               <button type="button" onclick="changeQty(this, -1)">-</button>
+               <span class="qty">0</span>
+               <button type="button" onclick="changeQty(this, 1)">+</button>
+           </div>
+       </div>
+
+
+       <!-- WhizzSmash -->
+       <div class="menu-item" data-price="10.75">
+           <h2 class="item-title">WhizzSmash Double</h2>
+           <span class="description"><i>(Black Angus Steak Burger smashed and grilled to perfection.)</i></span>
+           <h2 class="price">- $10.75</h2>
+           <div class="controls">
+               <button type="button" onclick="changeQty(this, -1)">-</button>
+               <span class="qty">0</span>
+               <button type="button" onclick="changeQty(this, 1)">+</button>
+           </div>
+       </div>
+
+
+       <!-- Super Whizzburger -->
+       <div class="menu-item" data-price="12.75">
+           <h2 class="item-title">Super Whizzburger</h2>
+           <span class="description"><i>(Our famous burger with twice the meat.)</i></span>
+           <h2 class="price">- $12.75</h2>
+           <div class="controls">
+               <button type="button" onclick="changeQty(this, -1)">-</button>
+               <span class="qty">0</span>
+               <button type="button" onclick="changeQty(this, 1)">+</button>
+           </div>
+       </div>
+
+
+       <!-- Quarter Pounder -->
+       <div class="menu-item" data-price="10.75">
+           <h2 class="item-title">Quarter Pounder Deluxe With Cheese</h2>
+           <span class="description"><i>(Try our Quarter Pounder Burger with all the fixings.)</i></span>
+           <h2 class="price">- $10.75</h2>
+           <div class="controls">
+               <button type="button" onclick="changeQty(this, -1)">-</button>
+               <span class="qty">0</span>
+               <button type="button" onclick="changeQty(this, 1)">+</button>
+           </div>
+       </div>
+
+
+       <!-- Pork Tenderloin -->
+       <div class="menu-item" data-price="9.75">
+           <h2 class="item-title">Pork Tenderloin</h2>
+           <span class="description"><i>(A nice cut of pork tenderloin buttered to perfection.)</i></span>
+           <h2 class="price">- $9.75</h2>
+           <div class="controls">
+               <button type="button" onclick="changeQty(this, -1)">-</button>
+               <span class="qty">0</span>
+               <button type="button" onclick="changeQty(this, 1)">+</button>
+           </div>
+       </div>
+
+
+       <!-- Gut Buster -->
+       <div class="menu-item" data-price="16.75">
+           <h2 class="item-title">"Gut Buster" - ½ Lb. 100% Beef</h2>
+           <span class="description"><i>(Topped with spicy jalapeno sausage, lettuce, tomato, onion, mayo and 2 slices of cheese!)</i></span>
+           <h2 class="price">- $16.75</h2>
+           <div class="controls">
+               <button type="button" onclick="changeQty(this, -1)">-</button>
+               <span class="qty">0</span>
+               <button type="button" onclick="changeQty(this, 1)">+</button>
+           </div>
+       </div>
+
+
+       <!-- Hamburger -->
+       <div class="menu-item" data-price="4.99">
+           <h2 class="item-title">Hamburger</h2>
+           <span class="description"><i>(Simple and Tasty! A kid's favorite.)</i></span>
+           <h2 class="price">- $4.99</h2>
+           <div class="controls">
+               <button type="button" onclick="changeQty(this, -1)">-</button>
+               <span class="qty">0</span>
+               <button type="button" onclick="changeQty(this, 1)">+</button>
+           </div>
+       </div>
+
+
+       <!-- Grilled Chicken -->
+       <div class="menu-item" data-price="9.50">
+           <h2 class="item-title">Grilled Chicken Sandwich</h2>
+           <span class="description"><i>(Tender home style seasoned chicken breast with all fixings.)</i></span>
+           <h2 class="price">- $9.50</h2>
+           <div class="controls">
+               <button type="button" onclick="changeQty(this, -1)">-</button>
+               <span class="qty">0</span>
+               <button type="button" onclick="changeQty(this, 1)">+</button>
+           </div>
+       </div>
+
+
+       <!-- Double Cheeseburger -->
+       <div class="menu-item" data-price="7.95">
+           <h2 class="item-title">Double Cheeseburger</h2>
+           <span class="description"><i>(A double patty burger with two slices of cheese.)</i></span>
+           <h2 class="price">- $7.95</h2>
+           <div class="controls">
+               <button type="button" onclick="changeQty(this, -1)">-</button>
+               <span class="qty">0</span>
+               <button type="button" onclick="changeQty(this, 1)">+</button>
+           </div>
+       </div>
+
+
+       <!-- Hoagie Steak -->
+       <div class="menu-item" data-price="10.95">
+           <h2 class="item-title">Hoagie Steak Deluxe</h2>
+           <span class="description"><i>(A hot submarine sandwich with a taste of New York!)</i></span>
+           <h2 class="price">- $10.95</h2>
+           <div class="controls">
+               <button type="button" onclick="changeQty(this, -1)">-</button>
+               <span class="qty">0</span>
+               <button type="button" onclick="changeQty(this, 1)">+</button>
+           </div>
+       </div>
+
+
+       <!-- Big Fish -->
+       <div class="menu-item" data-price="11.95">
+           <h2 class="item-title">Big Fish</h2>
+           <span class="description"><i>(Large Cod breaded to perfection served with special tartar sauce.)</i></span>
+           <h2 class="price">- $11.95</h2>
+           <div class="controls">
+               <button type="button" onclick="changeQty(this, -1)">-</button>
+               <span class="qty">0</span>
+               <button type="button" onclick="changeQty(this, 1)">+</button>
+           </div>
+       </div>
+
+
+       <!-- Whizzburger -->
+       <div class="menu-item" data-price="9.75">
+           <h2 class="item-title">Whizzburger</h2>
+           <span class="description"><i>(Our famous Whizzburger since 1947! Double decker with secret sauce.)</i></span>
+           <h2 class="price">- $9.75</h2>
+           <div class="controls">
+               <button type="button" onclick="changeQty(this, -1)">-</button>
+               <span class="qty">0</span>
+               <button type="button" onclick="changeQty(this, 1)">+</button>
+           </div>
+       </div>
+
+
+       <!-- Cheeseburger -->
+       <div class="menu-item" data-price="5.99">
+           <h2 class="item-title">Cheeseburger</h2>
+           <span class="description"><i>(Simple and Tasty with an extra kick of cheese!)</i></span>
+           <h2 class="price">- $5.99</h2>
+           <div class="controls">
+               <button type="button" onclick="changeQty(this, -1)">-</button>
+               <span class="qty">0</span>
+               <button type="button" onclick="changeQty(this, 1)">+</button>
+           </div>
+       </div>
+   </div>
+
+
+   <!-- Sticky Footer -->
+   <div class="cart-summary">
+       <h3>Total Order: $<span id="total-price">0.00</span></h3>
+       <button class="checkout-btn" id="view-order-btn">View Order</button>
+   </div>
+
+
+   <!-- Modal for Order Review -->
+   <div id="orderModal" class="modal">
+       <div class="modal-content">
+           <span class="close-btn" onclick="closeModal()">&times;</span>
+           <h2 style="color:black;">Your Order</h2>
+           <hr> <br>
+           <div id="order-list"></div>
+           <div id="modal-total-price"><strong style="color:black;">Total: $0.00</strong></div>
+           <br><br><br>
+       </div>
+   </div>
+
+
+   <footer class="site-footer">
+       <p>Copyright © 2021 Dizzy Whizz Inc.</p>
+   </footer>
+
+
+   <script>
+       function changeQty(btn, change) {
+           const container = btn.parentElement;
+           const qtyElement = container.querySelector('.qty');
+           let currentQty = parseInt(qtyElement.innerText);
+           currentQty += change;
+           if (currentQty < 0) currentQty = 0;
+           qtyElement.innerText = currentQty;
+           updateTotal();
+       }
+
+
+       function updateTotal() {
+           let total = 0;
+           document.querySelectorAll('.menu-item').forEach(item => {
+               const price = parseFloat(item.getAttribute('data-price'));
+               const qty = parseInt(item.querySelector('.qty').innerText);
+               total += price * qty;
+           });
+           document.getElementById('total-price').innerText = total.toFixed(2);
+       }
+
+
+       document.getElementById('view-order-btn').onclick = function() {
+           let orderList = document.getElementById('order-list');
+           let totalDisplay = document.getElementById('total-price').innerText;
+           orderList.innerHTML = '';
+           let hasItems = false;
+          
+           document.querySelectorAll('.menu-item').forEach(item => {
+               let qty = parseInt(item.querySelector('.qty').innerText);
+               if (qty > 0) {
+                   hasItems = true;
+                   let title = item.querySelector('.item-title').innerText;
+                   let price = parseFloat(item.getAttribute('data-price'));
+                   let itemTotal = (qty * price).toFixed(2);
+                   orderList.innerHTML += `<p style="color:black; border-bottom:1px solid #ddd; padding:5px;">${qty}x ${title} - $${itemTotal}</p>`;
+               }
+           });
+
+
+           if (!hasItems) {
+               orderList.innerHTML = '<p style="color:black;">Your cart is empty!</p>';
+           }
+
+
+           document.getElementById('modal-total-price').innerHTML = `<strong style="color:black;">Total: $${totalDisplay}</strong>`;
+           document.getElementById('orderModal').style.display = "block";
+       }
+
+
+       function closeModal() {
+           document.getElementById('orderModal').style.display = "none";
+       }
+
+
+       window.addEventListener('click', function(event) {
+           let modal = document.getElementById('orderModal');
+           if (event.target == modal) {
+               modal.style.display = "none";
+           }
+       });
+   </script>
+</body>
+</html>
+
+
+
